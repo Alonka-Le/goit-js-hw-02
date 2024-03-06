@@ -1,19 +1,10 @@
 function checkForSpam(message) {
-  const lowerCaseMessage = message.toLowerCase();
-  const forbiddenWord1 = 'spam';
-  const forbiddenWord2 = 'sale';
-  const lowerCaseSpam = forbiddenWord1.toLowerCase();
-  const lowerCaseSale = forbiddenWord2.toLowerCase();
-
-  if (
-    lowerCaseMessage.includes(lowerCaseSpam) ||
-    lowerCaseMessage.includes(lowerCaseSale)
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  const normalizedMessage = message.toLowerCase();
+  return (
+    normalizedMessage.includes('spam') || normalizedMessage.includes('sale')
+  );
 }
+
 console.log(checkForSpam('Latest technology news')); // false
 console.log(checkForSpam('JavaScript weekly newsletter')); // false
 console.log(checkForSpam('Get best sale offers now!')); // true
